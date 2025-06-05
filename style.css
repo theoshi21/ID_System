@@ -1,0 +1,244 @@
+    body {
+      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    p, h3{
+      color:#1e3c72;
+    }
+
+    /* Ensuring iframe doesn't overflow */
+    iframe#contentFrame {
+        flex-grow: 1;
+        height: calc(100vh - 70px); /* Adjust based on your navbar height */
+        width: 100%;
+        border: none;
+    }
+
+    /* For the date and time formatting */
+    .dateStr {
+        font-weight: 600;
+        font-size: 1.1rem;   
+        text-align: right;
+    }
+
+    .timeStr {
+        font-size: 2rem;
+        font-weight: 300;
+        opacity: 0.9;
+        display: block;
+    }
+
+    #dateTime{
+        color: #fff;
+    }
+
+    /* For navbar formatting (the horizontal one) */
+    .navbar_top{
+        background: #1e3c72;
+
+    }
+    .navbar_toggle{
+        background: #3fa2f6;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    /* For the sidebar formatting (the vertical one) */
+    #sidebar .nav-link {
+      color: #fff;
+    }
+    #sidebar .nav-link:hover{
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    #logoutBtn{
+        background: #1e3c72;
+        color: #fff;
+        cursor: pointer;
+    }
+    #logoutBtn:hover{
+        background: rgba(255, 255, 255, 0.5);
+        color: #fff;
+    }
+    .navBtn{
+        background: #3fa2f6;
+        color: white;
+    }
+
+ 
+    /* CONTENT STYLING */
+    .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1e3c72;
+            text-align: left;
+        }
+
+    /* DASHBOARD STYLING */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        background: #1e3c72;
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.3rem;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5%;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+/* USER MANAGEMENT STYLING */
+    .status-indicator {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .status-active { background: #4ade80; }
+    .status-inactive { background: #f87171; }
+    .status-pending { background: #fbbf24; }
+
+    /* User Management Styles */
+    .user-management-content {
+      color: #1e3c72;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .user-table {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      margin-top: 5px;
+    }
+
+    .user-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .user-table th,
+    .user-table td {
+      padding: 12px;
+      text-align: left;
+      color:#1e3c72;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #1e3c72;
+    }
+
+/* ID CARD MANAGEMENT STYLING */
+  .design-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .form-section {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"] {
+            width: 75%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: #3fa2f6;
+        }
+
+        .image-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .upload-btn {
+            background: #3fa2f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: #2980b9;
+        }
+
+/* INSERT MORE OF YOUR STYLING HERE ROSH!! */
