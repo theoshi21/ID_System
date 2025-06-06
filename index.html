@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | ID System</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
-      overflow-x: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f4f8;
       min-height: 100vh;
@@ -16,14 +16,32 @@
       justify-content: center;
     }
 
-    .login-container {
+    .login-wrapper {
+      max-width: 900px;
       width: 100%;
-      max-width: 420px;
-      padding: 40px 30px;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-top: 8px solid #1e3c72;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .login-left, .login-right {
+      padding: 40px 30px;
+      flex: 1 1 300px;
+    }
+
+    .login-left {
+      background: #ffffff;
+      border-right: 1px solid #eee;
+    }
+
+    .login-right {
+      background: #eaf0f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     h3 {
@@ -57,16 +75,51 @@
       font-size: 0.9rem;
     }
 
+    .qr-box {
+      text-align: center;
+      border: 2px dashed #1e3c72;
+      border-radius: 10px;
+      padding: 40px 20px;
+      color: #1e3c72;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .qr-box:hover {
+      background-color: #dbe7f2;
+      cursor: pointer;
+    }
+
+    .qr-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #1e3c72;
+    }
+
     .footer-note {
       text-align: center;
       font-size: 0.85rem;
       margin-top: 15px;
       color: #666;
     }
+
+    @media (max-width: 768px) {
+      .login-wrapper {
+        flex-direction: column;
+      }
+
+      .login-left {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="login-container">
+
+<div class="login-wrapper">
+  <!-- Left: Traditional Login -->
+  <div class="login-left">
     <h3>Login to ID System</h3>
     <form id="loginForm">
       <div class="mb-3">
@@ -85,7 +138,17 @@
     </div>
   </div>
 
-  <script>
+  <!-- Right: QR/RFID Login -->
+  <div class="login-right">
+    <div class="qr-box" id="rfidTapBox" tabindex="0">
+      <div class="qr-icon"><i class="fas fa-qrcode fa-3x"></i></div>
+      <h5>Scan QR Code or Tap ID</h5>
+      <p class="text-muted small">Hold your ID near the scanner or use a QR-enabled app.</p>
+    </div>
+  </div>
+</div>
+
+<script>
   document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -93,7 +156,6 @@
     const password = document.getElementById("password").value.trim();
     const errorMsg = document.getElementById("errorMsg");
 
-    // Clear any previous messages
     errorMsg.textContent = "";
     errorMsg.style.color = "red";
 
@@ -102,7 +164,7 @@
       errorMsg.textContent = "Login successful! Redirecting...";
       setTimeout(() => {
         window.location.href = "admin.html";
-      }, 1000); // 1 second delay
+      }, 1000);
     } else if (username === "user" && password === "user") {
       errorMsg.style.color = "green";
       errorMsg.textContent = "Login successful! Redirecting...";
@@ -112,6 +174,11 @@
     } else {
       errorMsg.textContent = "Invalid username or password.";
     }
+  });
+
+  document.getElementById("rfidTapBox").addEventListener("click", () => {
+    alert("Simulating QR/ID Tap... Redirecting to user page.");
+    window.location.href = "admin.html";
   });
 </script>
 
