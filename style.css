@@ -9,14 +9,6 @@
       color:#1e3c72;
     }
 
-    /* Ensuring iframe doesn't overflow */
-    iframe#contentFrame {
-        flex-grow: 1;
-        height: calc(100vh - 70px); /* Adjust based on your navbar height */
-        width: 100%;
-        border: none;
-    }
-
     /* For the date and time formatting */
     .dateStr {
         font-weight: 600;
@@ -517,3 +509,104 @@
 }
 
 
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .design-area {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-left {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card-right {
+    border-left: none;
+    border-top: 2px solid #e9ecef;
+    padding-left: 0;
+    padding-top: 15px;
+  }
+
+  .photo {
+    width: 150px;
+    height: 190px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* One column on tablets */
+  }
+
+  .form-group input[type="text"] {
+    width: 100%;
+  }
+}
+
+
+/* DYNAMIC SIZING FOR TABLET / MOBILE PHONES */
+@media (max-width: 768px) {
+  .timeStr {
+    font-size: 1.5rem;
+  }
+
+  .dateStr {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .navbar_top,
+  .navbar_toggle {
+    text-align: center;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 10px 6px;
+    font-size: 0.9rem;
+  }
+
+  .id-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-left, .card-right {
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .user-card-header h2 {
+    font-size: 1rem;
+  }
+
+  .info .label {
+    font-size: 0.8rem;
+  }
+
+  .info .value {
+    font-size: 1.1rem;
+  }
+
+  .access-granted,
+  .access-denied {
+    font-size: 1.5rem;
+  }
+
+  .upload-btn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form-group input[type="text"] {
+    font-size: 15px;
+  }
+}
